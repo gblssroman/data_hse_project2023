@@ -10,5 +10,5 @@ st.subheader("\nЭто универсальный бот-помощник для
 4) Переводить рукописный текст в напечатанный,\n\
 5) Решать СЛАУ методом Крамера\n\n")
 
-st.markdown(f'''<a href={bot_url}><button style="background-color:Red;color:White;">Перейти в бота</button></a>''',
+st.markdown(f'''<a href={bot_url}><button style="background-color:Red;color:White;border-radius:5px;padding:10px;margin:15px 0;">Перейти в бота</button></a>''',
 unsafe_allow_html=True)
