@@ -19,7 +19,7 @@ st.header("\n\nВесь код:\n")
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import *
 
-bot = Bot(BOT_TOKEN)
+bot = Bot(TG_TOKEN)
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
