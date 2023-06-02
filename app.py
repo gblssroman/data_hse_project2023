@@ -73,14 +73,15 @@ async def solve(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await bot.send_message(callback_query.from_user.id, "Введите матрицу СЛАУ:")
 
-def main():
+async def main():
     st.title("STODOBOT Telegram - launching...")
     st.write("Добро пожаловать!")
 
+async def start_polling():
+    await dp.start_polling()
+
 if __name__ == '__main__':
-    # Создаем цикл событий и запускаем Streamlit-приложение внутри него
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    loop.create_task(dp.start_polling())
-    loop.run_until_complete(main())
+    loop.run_until_complete(asyncio.gather(main(), start_polling()))
 
