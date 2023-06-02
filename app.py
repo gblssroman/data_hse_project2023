@@ -17,10 +17,13 @@ st.header("\n\nВесь код:\n")
 #Далее код и его работа
 
 from aiogram import Bot, Dispatcher, executor, types
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+import asyncio
 from aiogram.types import *
 
 bot = Bot(st.secrets.tg.TG_TOKEN)
-dp = Dispatcher(bot)
+storage = MemoryStorage()
+dp = Dispatcher(bot, storage=storage)
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
@@ -70,6 +73,13 @@ async def solve(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await bot.send_message(callback_query.from_user.id, "Введите матрицу СЛАУ:")
 
+def main():
+    st.title("STODOBOT Telegram - launching...")
+    st.write("Добро пожаловать!")
+
 if __name__ == '__main__':
-    executor.start_polling(dp)
+    loop = asyncio.get_event_loop()
+    loop.create_task(dp.start_polling())
+    loop.create_task(main())
+    loop.run_forever()
 
