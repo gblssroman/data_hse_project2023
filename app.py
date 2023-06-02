@@ -15,3 +15,5 @@ unsafe_allow_html=True)
 
 st.header("\n\nВесь код:\n")
 #Далее код и его работа
+
+print(TG_TOKEN)
