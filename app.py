@@ -406,7 +406,7 @@ def solve_slau_by_cramer(slau):
 испольуйте, например, метод Гаусса'
     elif M_coeff.det() == 0:
         return 'Определитель основной матрицы равен 0, а это значит, \
-что нет единственного решения!''
+что нет единственного решения!'
     else:
         for i in range(M_coeff.cols):
             M_temp = M_coeff.copy()
