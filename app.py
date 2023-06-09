@@ -57,7 +57,7 @@ async def init_command(message: types.Message):
 async def process_query(callback_query: types.CallbackQuery):
     callback_id = callback_query.from_user.id
     callback_data = callback_query.data
-    error_txt = "Произошла ошибка, попробуйте позже."
+    error_txt = "Произошла ошибка, попробуйте позже!"
 
     if callback_data == 'schedule':
         await bot_inst.send_message(callback_id, "Введите группу:")
@@ -77,7 +77,7 @@ async def process_query(callback_query: types.CallbackQuery):
             img_io.seek(0)
             await bot_inst.send_photo(callback_id, photo=img_io)
         except Exception:
-            await message.answer(e)
+            await bot_inst.send_message(callback_id, e)
             await bot_inst.send_message(callback_id, error_txt)
     elif callback_data == 'contacts':
         await bot_inst.send_message(callback_id, "Загрузите файл CSV с номерами телефонов и e-mail'ами:")
