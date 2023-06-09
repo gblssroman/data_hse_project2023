@@ -9,3 +9,4 @@ pep8==1.7.1
 scipy==1.9.1
 selenium==4.9.1
 sklearn==0.0.post5
+Pillow==9.5.0
