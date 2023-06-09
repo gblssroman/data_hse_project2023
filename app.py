@@ -21,7 +21,6 @@ unsafe_allow_html=True)
 
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from my_module import get_groups, get_schedule, get_yuan, check_data, forecast_weather, solve_cramer
 from PIL import Image
 from io import BytesIO
 import io
@@ -277,9 +276,7 @@ def forecast_weather(date):
     else:
         return "Введите действительную дату в формате: день месяц"
 
-####
-
-def solve_slau_by_cramer(slau):
+def solve_cramer(slau):
     M = sp.Matrix(slau)
     M_coeff = M[:, :-1]
     M_const = M[:, -1]
