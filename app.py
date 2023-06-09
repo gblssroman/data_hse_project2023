@@ -19,12 +19,27 @@ unsafe_allow_html=True)
 #Далее код и его работа
 ####################################
 
+import numpy as np
+import sympy as sp
+import locale
+import random
+import pandas as pd
+import re
+import csv
+import openai
+import matplotlib.pyplot as plt
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+from sklearn.linear_model import Ridge
+import sqlite3
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from PIL import Image
 from io import BytesIO
 import io
 import requests
+import asyncio
 
 bot_inst = Bot(st.secrets.tg.TG_TOKEN)
 dp_inst = Dispatcher(bot_inst)
@@ -49,11 +64,16 @@ async def process_query(callback_query: types.CallbackQuery):
     elif callback_data == 'yuan':
         await bot_inst.send_message(callback_id, "Пожалуйста, ожидайте...")
         try:
-            yuan_val, yuan_img = get_yuan()
-            await bot_inst.send_message(callback_id, yuan_val)
+            yuan_data, yuan_img = get_yuan()
+            for timeframe, indicators in yuan_data.items():
+                response_message = f"{timeframe}:\n"
+                for key, values in indicators.items():
+                    response_message += f"{values}\n"
+                await bot_inst.send_message(callback_id, response_message)
+
             img_io = io.BytesIO()
             img_io.name = 'yuan.png'
-            image.save(img_io, 'PNG')
+            yuan_img.save(img_io, 'PNG')
             img_io.seek(0)
             await bot_inst.send_photo(callback_id, photo=img_io)
         except Exception:
@@ -275,6 +295,8 @@ def forecast_weather(date):
         return [date_sql, f"{round(res['prediction'][0], 1)} C", f"{round(res['actual'][0], 1)} C"]
     else:
         return "Введите действительную дату в формате: день месяц"
+    
+####
 
 def solve_cramer(slau):
     M = sp.Matrix(slau)
