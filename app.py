@@ -77,6 +77,7 @@ async def process_query(callback_query: types.CallbackQuery):
             img_io.seek(0)
             await bot_inst.send_photo(callback_id, photo=img_io)
         except Exception:
+            await print("Exception occurred:", e)
             await bot_inst.send_message(callback_id, error_txt)
     elif callback_data == 'contacts':
         await bot_inst.send_message(callback_id, "Загрузите файл CSV с номерами телефонов и e-mail'ами:")
@@ -106,6 +107,7 @@ async def process_message(message: types.Message):
             result = solve_cramer(slau)
             await message.answer(f"Результат: {result}")
     except Exception:
+        await print("Exception occurred:", e)
         await message.answer("Произошла ошибка, попробуйте позже.")
 
 ###функции
