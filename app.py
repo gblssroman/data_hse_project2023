@@ -52,8 +52,6 @@ async def process_query(callback_query: types.CallbackQuery):
         try:
             yuan_val, yuan_img = get_yuan()
             await bot_inst.send_message(callback_id, yuan_val)
-            image_response = requests.get(yuan_img)
-            image = Image.open(BytesIO(image_response.content))
             img_io = io.BytesIO()
             img_io.name = 'yuan.png'
             image.save(img_io, 'PNG')
@@ -158,8 +156,8 @@ def get_schedule(group_id, date):
             
     all_subj_prompt = ""
     for i in tmrw_schedule:
-    if i[0] not in all_subj_prompt:
-        all_subj_prompt += f"{i[0]}, "
+        if i[0] not in all_subj_prompt:
+            all_subj_prompt += f"{i[0]}, "
         
     return res_final, get_an_advice(all_subj_prompt)
 
