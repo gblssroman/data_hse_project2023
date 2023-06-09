@@ -3,8 +3,8 @@
 ### Май, 2023
 
 ## Проект размещен на Streamlit!
-    ## Ссылка на Streamlit: <будет чуть позже>
-### Исходный код в формате IPYNB: main.ipynb
+    Ссылка на Streamlit: <в процессе добавления>
+### Исходный код в формате IPYNB: [main.ipynb](https://github.com/rtccreator/data_hse_project2023/blob/main/main.ipynb)
 
 #### Что такое Studobot?
     Это универсальный бот-помощник для студента, который умеет:
