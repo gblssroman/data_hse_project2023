@@ -4,7 +4,7 @@
 ### Май, 2023
 
 ## Проект размещен на Streamlit!
-    Ссылка на Streamlit: https://rtccreator-data-hse-project2023-app-d508n0.streamlit.app/
+### Ссылка на Streamlit: [https://rtccreator-data-hse-project2023-app-d508n0.streamlit.app/](https://rtccreator-data-hse-project2023-app-d508n0.streamlit.app/)
 ### Исходный код в формате IPYNB: [main.ipynb](https://github.com/rtccreator/data_hse_project2023/blob/main/main.ipynb)
 
 #### В чем заключается вкратце выполненная работа?
