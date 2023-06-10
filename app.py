@@ -34,9 +34,7 @@ dp_inst = Dispatcher(bot_inst)
 @dp_inst.message_handler(commands=['start'])
 async def init_command(message: types.Message):
     reply_kb = InlineKeyboardMarkup()
-    functions = [("🧮 Решить СЛАУ по Крамеру", 'solve')]
-    for item_text, item_callback in functions:
-        reply_kb.add(InlineKeyboardButton(item_text, callback_data=item_callback))
+    reply_kb.add(InlineKeyboardButton("🧮 Решить СЛАУ по Крамеру", callback_data='solve'))
     await message.answer("Добро пожаловать! Я телеграм-бот проекта Влада Волобуева, который умеет решать СЛАУ методом Крамера. Выберите действие:", reply_markup=reply_kb)
 
 @dp_inst.callback_query_handler(lambda query: True)
@@ -56,15 +54,14 @@ async def process_message(message: types.Message):
         result = solve_cramer(slau)
         await message.answer(f"Результат: {result}")
     except Exception:
-        await message.answer(e)
         await message.answer("Ввод некорректный!")
 
 ###функции
 
 ####основные функции бота
 async def main():
-    st.title("STODOBOT Telegram бот запущен!")
-    st.write("Бот выполняет указанные выше функции. По всем остальным модулям - см. Jupyter Notebook!")
+    st.title("Бот, решающий СЛАУ методом Крамера успешно запущен!")
+    st.write("По остальным пунктам - см. Jupyter Notebook (зеленая кнопка)! Там представлен весь код.")
 
 async def start_polling():
     await dp_inst.start_polling()
