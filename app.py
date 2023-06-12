@@ -22,9 +22,6 @@ import numpy as np
 import sympy as sp
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from PIL import Image
-from io import BytesIO
-import io
 import requests
 import asyncio
 
