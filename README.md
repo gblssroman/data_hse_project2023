@@ -1,5 +1,5 @@
 # data_hse_project2023
-## Проект по Анализу данных ВШЭ Волобуева Владислава
+## Проект по Анализу данных ВШЭ // by rtccreator
 ### Май, 2023
 
 ## Весь код в формате IPYNB: [main.ipynb](https://github.com/rtccreator/data_hse_project2023/blob/main/main.ipynb)
@@ -14,4 +14,4 @@
 
 ### Бот размещен на Streamlit! Ссылка на Streamlit: [https://rtccreator-data-hse-project2023-app-d508n0.streamlit.app/](https://rtccreator-data-hse-project2023-app-d508n0.streamlit.app/)
 
-#### Readme последний раз обновлено 09.06.2023
+#### Readme последний раз обновлено 30.07.2023
